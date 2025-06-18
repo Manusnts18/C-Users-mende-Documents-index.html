@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Volt - Energía Imparable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #000 0%, #111 100%);
+      color: #00ffd5;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px #00ffd5;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #00ffd5cc;
+      margin-bottom: 20px;
+    }
+
+    .glow {
+      text-shadow: 0 0 10px #00ffd5, 0 0 20px #00ffd5, 0 0 30px #00ffd5;
+    }
+
+    img.logo {
+      width: 120px;
+      margin: 20px 0;
+      filter: drop-shadow(0 0 10px #00ffd5);
+    }
+
+    img.producto {
+      width: 220px;
+      margin: 30px 0;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #00ffd599;
+    }
+
+    input, select, button {
+      background-color: #000;
+      color: #00ffd5;
+      border: 2px solid #00ffd5;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 1rem;
+      margin: 10px auto;
+      width: 90%;
+      max-width: 300px;
+      box-shadow: 0 0 10px #00ffd544;
+      transition: all 0.3s ease;
+    }
+
+    input::placeholder, select {
+      color: #00ffd599;
+    }
+
+    button:hover {
+      background-color: #00ffd5;
+      color: #000;
+      box-shadow: 0 0 20px #00ffd5;
+      cursor: pointer;
+    }
+
+    h2, h3 {
+      color: #00ffd5;
+      text-shadow: 0 0 6px #00ffd5aa;
+      margin-top: 50px;
+    }
+
+    #cuadro {
+      width: 150px;
+      height: 150px;
+      background: gray;
+      margin: 20px auto;
+      border-radius: 12px;
+      transition: background 0.3s ease;
+    }
+
+    #preview {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #00ffd599;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Imagen del logo embebida en Base64 -->
+    <img src="https://superlavioleta.com/cdn/shop/files/volt_yellow_473baja.png?v=1739542112" alt="Logo Volt" class="logo">
+
+    <h1 class="glow">Volt - Energía Imparable</h1>
+    <p>Descubre el poder de Volt. La bebida energética que enciende tu día y desata tu potencial. ¡Actívate con Volt!</p>
+
+    <!-- Imagen del producto embebida en Base64 -->
+    <img src="c:\Users\mende\Documents\Imagen de WhatsApp 2025-06-09 a las 20.48.06_ecc733c5.jpg" alt="Lata Volt" class="producto">
+
+    <!-- FORMULARIO AGREGADO AL FINAL -->
+    <h2>Formulario de Interacción</h2>
+
+    <!-- Evento click -->
+    <h3>1. Evento: click</h3>
+    <button id="btnClick">Haz clic aquí</button>
+
+    <!-- Eventos mouseover y mouseout -->
+    <h3>2. Eventos: mouseover y mouseout</h3>
+    <div id="cuadro"></div>
+
+    <!-- Eventos keydown y keyup -->
+    <h3>3. Eventos: keydown y keyup</h3>
+    <input type="text" id="inputTeclado" placeholder="Escribe algo...">
+
+    <!-- Evento input -->
+    <h3>4. Evento: input</h3>
+    <input type="text" id="textoInput" placeholder="Escribe tu nombre">
+    <p>Vista previa: <span id="preview"></span></p>
+
+    <!-- Evento change -->
+    <h3>5. Evento: change</h3>
+    <select id="selector">
+      <option value="">Selecciona un color</option>
+      <option value="Rojo">Rojo</option>
+      <option value="Azul">Azul</option>
+      <option value="Verde">Verde</option>
+    </select>
+
+    <!-- Evento submit -->
+    <h3>6. Evento: submit</h3>
+    <form id="miFormulario">
+      <input type="text" placeholder="Nombre" required>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <footer>
+      <p>© 2025 Volt Energy Drink. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("btnClick").addEventListener("click", () => {
+      alert("¡Hiciste clic en el botón!");
+    });
+
+    const cuadro = document.getElementById("cuadro");
+    cuadro.addEventListener("mouseover", () => {
+      cuadro.style.backgroundColor = "#00ffd5";
+    });
+    cuadro.addEventListener("mouseout", () => {
+      cuadro.style.backgroundColor = "gray";
+    });
+
+    const inputTeclado = document.getElementById("inputTeclado");
+    inputTeclado.addEventListener("keydown", () => {
+      console.log("Tecla presionada");
+    });
+    inputTeclado.addEventListener("keyup", () => {
+      console.log("Tecla liberada");
+    });
+
+    const inputTexto = document.getElementById("textoInput");
+    const preview = document.getElementById("preview");
+    inputTexto.addEventListener("input", () => {
+      preview.textContent = inputTexto.value;
+    });
+
+    const selector = document.getElementById("selector");
+    selector.addEventListener("change", (e) => {
+      alert(`Seleccionaste: ${e.target.value}`);
+    });
+
+    const formulario = document.getElementById("miFormulario");
+    formulario.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Formulario enviado correctamente");
+    });
+  </script>
+</body>
+</html>
